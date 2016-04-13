@@ -3,10 +3,15 @@
 #ifndef UNIVERSALFXNS_H
 #define UNIVERSALFXNS_H
 #include <cmath>
-bool palindrome(int num);
-bool isPrime(int num);
-int divisors(int n);
-double sqrt(int n);
+
+
+int sumArray(int arr[], int length){
+  int sum = 0;
+  for(int a = 0; a < length; a++){
+    sum += arr[a];
+  }
+  return sum;
+}
 
 double sqrt(int n){
   double a = double(n);
@@ -15,12 +20,13 @@ double sqrt(int n){
 
 int divisors(int n){
   int count = 0;
-  for(int a = 1; a < n; a++){
+  int k = sqrt(n) + 1;
+  for(int a = 1; a < k; a++){
     if(n % a == 0){
       count++;
     }
   }
-  return count;
+  return count*2;
 }
 
 bool palindrome(int num){
@@ -48,7 +54,7 @@ bool isPrime(int num){
   if(num % 2 == 0){
     return false;
   }
-  unsigned long k = int(sqrt(n)) + 1
+  unsigned long k = int(sqrt(num)) + 1;
   for(int a = 3; a < num; a++){
     if(num % a == 0){
       return false;
